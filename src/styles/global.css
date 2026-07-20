@@ -13,9 +13,9 @@
   --coral: #E8465F;
   --gold: #C98A2A;
   --violet: #7C5CE0;
-  --font-display: "Cascadia Mono","SFMono-Regular",Consolas,"Liberation Mono","Courier New",ui-monospace,monospace;
+  --font-display: "Segoe UI Semibold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
   --font-body: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", ui-sans-serif, sans-serif;
-  --font-mono: var(--font-display);
+  --font-mono: "Cascadia Mono","SFMono-Regular",Consolas,"Liberation Mono","Courier New",ui-monospace,monospace;
   --rounded-xs: 4px;
   --rounded-sm: 10px;
   --rounded-md: 12px;

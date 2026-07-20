@@ -88,13 +88,13 @@
     "rules": [
       { "name": "The Real Color Rule", "body": "Every accent traces to a pixel that actually exists in one of the two real apps. Pitch Green is Vicki the Manager's literal primary; Arcade Cyan and Signal Coral are Pop Shot's literal jet and bubble colors. No color is chosen for generic connotation.", "section": "colors" },
       { "name": "The One-CTA Rule", "body": "Primary Green appears on exactly one interactive element per viewport at a time. It is never used as a background fill or a large surface color.", "section": "colors" },
-      { "name": "The Code-Face Rule", "body": "Anything the visitor is meant to remember (headlines, captions, tags) is set in the monospace display family. Anything meant to be read at length (paragraphs) is set in the body sans. Never mix the two roles.", "section": "typography" },
+      { "name": "The Warm Headline Rule", "body": "Display, Headline, and Title all use the humanist Segoe UI Semibold face, never monospace, so the page's big statements read as approachable rather than technical. Label text (eyebrows, tags, the nav wordmark) keeps the monospace Cascadia Mono face; that split is the only place the code-like register still belongs.", "section": "typography" },
       { "name": "The Ambient-Only Rule", "body": "Shadows are always soft, low-opacity, and colored toward what they're shadowing. They exist to lift an element off the page, never to fake depth on a flat section.", "section": "elevation" }
     ],
     "dos": [
       "Do trace every accent color to a real pixel from one of the two real apps.",
       "Do keep Primary Green rare: one CTA, small marks, never a large fill or background.",
-      "Do set every headline and label in the monospace display family.",
+      "Do set headlines in Segoe UI Semibold and keep Label text in monospace Cascadia Mono.",
       "Do keep phone-stage pieces visible at rest (opacity 1) at all times.",
       "Do respect prefers-reduced-motion by showing the fully-assembled, static layout immediately."
     ],
@@ -103,7 +103,7 @@
       "Don't use a dark theme or a gradient-blob hero.",
       "Don't add decorative numbered markers (01/02/03).",
       "Don't use stock 'team high-fiving' or generic handshake/laptop photography.",
-      "Don't use Inter, Poppins, or Montserrat as the display face.",
+      "Don't use Inter, Poppins, or Montserrat as the display face, and don't move headlines back to monospace.",
       "Don't stack a border and a heavy shadow on the same element without reason."
     ]
   }

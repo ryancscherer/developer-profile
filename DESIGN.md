@@ -20,19 +20,19 @@ colors:
   accent-violet: "#7C5CE0"
 typography:
   display:
-    fontFamily: "Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Courier New, ui-monospace, monospace"
+    fontFamily: "Segoe UI Semibold, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "clamp(2rem, 5vw, 3.7rem)"
     fontWeight: 700
     lineHeight: 1.08
     letterSpacing: "-0.01em"
   headline:
-    fontFamily: "Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Courier New, ui-monospace, monospace"
+    fontFamily: "Segoe UI Semibold, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "clamp(1.6rem, 3vw, 2.3rem)"
     fontWeight: 700
     lineHeight: 1.15
     letterSpacing: "-0.01em"
   title:
-    fontFamily: "Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Courier New, ui-monospace, monospace"
+    fontFamily: "Segoe UI Semibold, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, system-ui, sans-serif"
     fontSize: "clamp(1.4rem, 2.4vw, 1.95rem)"
     fontWeight: 700
     lineHeight: 1.2
@@ -136,11 +136,11 @@ The palette reads as quiet and neutral until an accent is needed — restrained,
 
 ## 3. Typography
 
-**Display Font:** Cascadia Mono (with SFMono-Regular, Consolas, monospace fallback)
+**Display Font:** Segoe UI Semibold (with system sans-serif fallback)
 **Body Font:** Segoe UI (with -apple-system, system sans-serif fallback)
-**Label/Mono Font:** same family as Display, set smaller and looser
+**Label/Mono Font:** Cascadia Mono (with SFMono-Regular, Consolas, monospace fallback)
 
-**Character:** monospace-as-display is a deliberate break from the humanist-grotesk look every competitor small-studio site converges on. The subject is software, so its own material — a fixed-width code face — carries the headlines; the body face stays a plain, comfortable system sans so paragraphs stay easy to read.
+**Character:** the first version of this system set every headline in the same monospace face as the code that built the apps. In practice it read as too mechanical for the client's actual voice, straightforward and warm, not a terminal prompt, so Display, Headline, and Title moved to a smoother humanist sans (Segoe UI Semibold) while Label stayed monospace. That split still does real work: the precise, code-like register is reserved for UI chrome (eyebrows, tags, the nav wordmark), while everything meant to read as a headline gets a warmer, rounder face.
 
 ### Hierarchy
 - **Display** (700, `clamp(2rem, 5vw, 3.7rem)`, 1.08 line-height): the hero headline only, tight negative tracking (-0.01em).
@@ -150,7 +150,7 @@ The palette reads as quiet and neutral until an accent is needed — restrained,
 - **Label** (500, 0.72–0.8rem, 1.4 line-height, 0.12em tracking, uppercase): eyebrows, chip/tag text, nav wordmark.
 
 ### Named Rules
-**The Code-Face Rule.** Anything the visitor is meant to remember (headlines, captions, tags) is set in the monospace display family. Anything the visitor is meant to read at length (paragraphs) is set in the body sans. Never mix the two roles.
+**The Warm Headline Rule.** Display, Headline, and Title all use the humanist Segoe UI Semibold face, never monospace, so the page's big statements read as approachable rather than technical. Label text (eyebrows, tags, the nav wordmark) keeps the monospace face; that's the only place the code-like register still belongs.
 
 ## 4. Elevation
 
@@ -199,7 +199,7 @@ A recurring device frame — a CSS-drawn phone bezel (rounded rect, dark Ink str
 ### Do:
 - **Do** trace every accent color to a real pixel from one of the two real apps — Pitch Green, Arcade Cyan, and Signal Coral are not free choices.
 - **Do** keep Primary Green rare: one CTA, small marks, never a large fill or background.
-- **Do** set every headline and label in the monospace display family; never fall back to a generic humanist sans for hero type.
+- **Do** set headlines (Display/Headline/Title) in Segoe UI Semibold, and keep Label text (eyebrows, tags, nav wordmark) in the monospace Cascadia Mono family; don't mix the two roles.
 - **Do** keep phone-stage pieces visible at rest (opacity 1) at all times — only position/rotation animate, so the mockup can never render as a blank device.
 - **Do** respect `prefers-reduced-motion` by showing the fully-assembled, static layout immediately, per PRODUCT.md's accessibility requirement.
 
@@ -208,5 +208,5 @@ A recurring device frame — a CSS-drawn phone bezel (rounded rect, dark Ink str
 - **Don't** use a dark theme or a gradient-blob hero.
 - **Don't** add decorative numbered markers (01/02/03). The only sequence labels in this system are the apps' own real workflow order — Setup → Squad → Live → History, Aim → Pop → Progress — never an invented sequence.
 - **Don't** use stock "team high-fiving" or generic handshake/laptop photography.
-- **Don't** use Inter, Poppins, or Montserrat as the display face — the monospace-as-display choice is deliberate and should not drift back to a generic startup grotesk.
+- **Don't** use Inter, Poppins, or Montserrat as the display face, and don't move headlines back to monospace either; Segoe UI Semibold is the deliberate choice for anything meant to read as a headline.
 - **Don't** stack a border and a heavy shadow on the same element without reason (see Cards: only feature-visual cards get both, and only because they sit on low-contrast Paper).
