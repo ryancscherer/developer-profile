@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import rotationRules from '../assets/vicki/vm_rotation_rules.png';
+---
+
+<section class="idea-section">
+  <div class="wrap">
+    <p class="eyebrow">Where it started</p>
+    <div class="idea-grid">
+      <div class="idea-quote-card fade-up">
+        <div class="idea-visual">
+          <Image src={rotationRules} alt="Vicki the Manager rotation rules, showing Together and Apart pairings" widths={[280, 560]} sizes="(max-width: 840px) 90vw, 420px" loading="eager" />
+        </div>
+        <div class="app-kicker"><span class="swatch green"></span><span class="eyebrow">The idea</span></div>
+        <p class="idea-quote">"I want to manage the rotations of time on the soccer field, so that everyone gets an even amount of time. I want to focus on the game, not doing maths."</p>
+        <p class="idea-became">Became Vicki the Manager.</p>
+      </div>
+      <div class="idea-quote-card fade-up">
+        <div class="idea-visual">
+          <svg viewBox="0 0 420 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A simple sketch of the Pop Shot arena with two jets and a bubble">
+            <rect x="1" y="1" width="418" height="158" rx="14" fill="#F2FBFD" />
+            <g stroke="#C7D4D9" stroke-width="1">
+              <line x1="1" y1="80" x2="419" y2="80" />
+              <line x1="140" y1="20" x2="140" y2="140" />
+              <line x1="280" y1="20" x2="280" y2="140" />
+            </g>
+            <path d="M75,40 L60,64 L90,64 Z" fill="#E8465F" />
+            <path d="M345,116 L330,140 L360,140 Z" fill="#16B4D6" />
+            <circle cx="210" cy="90" r="10" fill="#C98A2A" />
+            <circle cx="245" cy="60" r="7" fill="#7C5CE0" />
+          </svg>
+        </div>
+        <div class="app-kicker"><span class="swatch cyan"></span><span class="eyebrow">The idea</span></div>
+        <p class="idea-quote">"I want a fun game that builds in complexity, but feels impossible to put down."</p>
+        <p class="idea-became">Became Pop Shot.</p>
+      </div>
+    </div>
+  </div>
+</section>

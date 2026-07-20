@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import gettingStarted from '../assets/vicki/vm_getting_started.png';
+import matchConfig from '../assets/vicki/vm_match_config.png';
+import roster from '../assets/vicki/vm_roster.png';
+import goalkeepers from '../assets/vicki/vm_goalkeepers.png';
+import bottomNav from '../assets/vicki/vm_bottom_nav.png';
+---
+
+<section class="assembly" id="work">
+  <div class="assembly-sticky">
+    <div class="assembly-copy">
+      <div class="assembly-caption active" data-cap="0">
+        <div class="app-kicker"><span class="swatch green"></span><span class="eyebrow">Vicki the Manager, Setup</span></div>
+        <h3>Set up in one screen.</h3>
+        <p>Match length, team size, rotation mode, configured once, ready before kickoff. Real screens from the shipped app.</p>
+      </div>
+      <div class="assembly-caption" data-cap="1">
+        <div class="app-kicker"><span class="swatch green"></span><span class="eyebrow">Vicki the Manager, Squad</span></div>
+        <h3>Built by the coach, for the coach.</h3>
+        <p>Roster, goalkeepers for each half, rotation order, set up from the sideline in a couple of minutes.</p>
+      </div>
+      <div class="assembly-caption" data-cap="2">
+        <div class="app-kicker"><span class="swatch green"></span><span class="eyebrow">Vicki the Manager, Match day</span></div>
+        <h3>Setup, Squad, Live, History.</h3>
+        <p>One app, the whole sideline. Named after the real Vicki, who manages a local youth soccer club.</p>
+      </div>
+      <div class="assembly-progress">
+        <i class="active green" data-dot="0"></i><i class="green" data-dot="1"></i><i class="green" data-dot="2"></i>
+      </div>
+    </div>
+
+    <div class="stage-frame">
+      <div class="stage-screen">
+        <Image class="vm-piece" id="vm-getting-started" src={gettingStarted} alt="Vicki the Manager getting started checklist" widths={[310, 620]} sizes="(max-width: 840px) 240px, 300px" loading="eager" fetchpriority="high" />
+        <Image class="vm-piece" id="vm-match-config" src={matchConfig} alt="Vicki the Manager match configuration card" widths={[310, 620]} sizes="(max-width: 840px) 240px, 300px" loading="eager" />
+        <Image class="vm-piece" id="vm-roster" src={roster} alt="Vicki the Manager squad roster" widths={[310, 620]} sizes="(max-width: 840px) 240px, 300px" loading="eager" />
+        <Image class="vm-piece" id="vm-goalkeepers" src={goalkeepers} alt="Vicki the Manager goalkeeper assignment" widths={[310, 620]} sizes="(max-width: 840px) 240px, 300px" loading="eager" />
+        <div class="vm-spacer"></div>
+        <Image class="vm-piece nav-piece" id="vm-nav" src={bottomNav} alt="Vicki the Manager bottom navigation: Setup, Squad, Live, History" widths={[340, 680]} sizes="(max-width: 840px) 240px, 300px" loading="eager" />
+      </div>
+      <div class="stage-bezel"></div>
+    </div>
+  </div>
+</section>

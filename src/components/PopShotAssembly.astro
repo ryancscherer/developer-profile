@@ -1,0 +1,97 @@
+<section class="assembly" id="popshot">
+  <div class="assembly-sticky">
+    <div class="assembly-copy">
+      <div class="assembly-caption active" data-cap="0">
+        <div class="app-kicker"><span class="swatch cyan"></span><span class="eyebrow">Pop Shot, Aiming</span></div>
+        <h3>Touch. Drag back. Release.</h3>
+        <p>Every shot is a slingshot. Pull away from your target and the bubble launches the opposite direction, power scaling with the stretch, with AI creating unlimited new levels to explore.</p>
+      </div>
+      <div class="assembly-caption" data-cap="1">
+        <div class="app-kicker"><span class="swatch cyan"></span><span class="eyebrow">Pop Shot, The loop</span></div>
+        <h3>Stick three, they pop.</h3>
+        <p>Bubbles cling to whoever they hit. Three stuck and that jet is out, unless you shoot theirs down first.</p>
+      </div>
+      <div class="assembly-caption" data-cap="2">
+        <div class="app-kicker"><span class="swatch cyan"></span><span class="eyebrow">Pop Shot, Builds in complexity</span></div>
+        <h3>Every run funds the next.</h3>
+        <p>Levels are procedurally generated and effectively endless. Opponent count and difficulty ramp up as you climb. Coins earned in the arena buy skins and continues.</p>
+      </div>
+      <div class="assembly-progress">
+        <i class="active cyan" data-dot="0"></i><i class="cyan" data-dot="1"></i><i class="cyan" data-dot="2"></i>
+      </div>
+    </div>
+
+    <div class="stage-frame">
+      <svg class="ps-svg" viewBox="0 0 400 800" xmlns="http://www.w3.org/2000/svg" aria-label="Pop Shot gameplay assembling on screen">
+        <defs>
+          <radialGradient id="screenGlow" cx="50%" cy="34%" r="75%">
+            <stop offset="0%" stop-color="#F2FBFD"/>
+            <stop offset="100%" stop-color="#E4EEF1"/>
+          </radialGradient>
+          <linearGradient id="glareGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#ffffff" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <rect x="4" y="4" width="392" height="792" rx="42" fill="url(#screenGlow)"/>
+
+        <g id="piece-grid" class="ps-piece" opacity="1">
+          <g stroke="#C7D4D9" stroke-width="1">
+            <line x1="18" y1="180" x2="382" y2="180"/>
+            <line x1="18" y1="320" x2="382" y2="320"/>
+            <line x1="18" y1="460" x2="382" y2="460"/>
+            <line x1="18" y1="600" x2="382" y2="600"/>
+            <line x1="120" y1="70" x2="120" y2="740"/>
+            <line x1="280" y1="70" x2="280" y2="740"/>
+          </g>
+        </g>
+
+        <g id="piece-trail" class="ps-piece" opacity="0">
+          <line x1="200" y1="640" x2="200" y2="440" stroke="#0B7E99" stroke-width="3" stroke-dasharray="6 8" stroke-linecap="round"/>
+        </g>
+
+        <g id="piece-bubble1" class="ps-piece" opacity="1"><circle r="13" fill="#16B4D6"/></g>
+        <g id="piece-bubble2" class="ps-piece" opacity="1"><circle r="11" fill="#E8465F"/></g>
+        <g id="piece-bubble3" class="ps-piece" opacity="1"><circle r="12" fill="#C98A2A"/></g>
+        <g id="piece-bubble4" class="ps-piece" opacity="1"><circle r="10" fill="#7C5CE0"/></g>
+        <g id="piece-bubble5" class="ps-piece" opacity="1"><circle r="9"  fill="#16B4D6"/></g>
+
+        <g id="piece-enemy1" class="ps-piece" opacity="1">
+          <path d="M120,90 L100,130 L140,130 Z" fill="#E8465F"/>
+          <circle cx="120" cy="122" r="6" fill="#ffffff" opacity="0.55"/>
+        </g>
+        <g id="piece-enemy2" class="ps-piece" opacity="1">
+          <path d="M280,110 L260,150 L300,150 Z" fill="#C98A2A"/>
+          <circle cx="280" cy="142" r="6" fill="#ffffff" opacity="0.55"/>
+        </g>
+        <g id="piece-enemy3" class="ps-piece" opacity="1">
+          <path d="M200,60 L180,100 L220,100 Z" fill="#7C5CE0"/>
+          <circle cx="200" cy="92" r="6" fill="#ffffff" opacity="0.55"/>
+        </g>
+
+        <g id="piece-player" class="ps-piece" opacity="1">
+          <path d="M200,650 L176,700 L224,700 Z" fill="#16B4D6"/>
+          <circle cx="200" cy="692" r="7" fill="#ffffff" opacity="0.55"/>
+        </g>
+
+        <g id="piece-hud" class="ps-piece" opacity="1">
+          <rect x="34" y="46" width="332" height="44" rx="12" fill="#ffffff" stroke="#D8E1E4"/>
+          <text x="54" y="74" font-family="Cascadia Mono, Consolas, monospace" font-size="15" fill="#14181F" font-weight="600">LV 12</text>
+          <circle cx="310" cy="68" r="8" fill="#C98A2A"/>
+          <text x="324" y="73" font-family="Cascadia Mono, Consolas, monospace" font-size="14" fill="#14181F">240</text>
+        </g>
+
+        <g id="piece-bezel" class="ps-piece" opacity="1">
+          <rect x="10" y="10" width="380" height="780" rx="52" fill="none" stroke="#14181F" stroke-width="6"/>
+          <rect x="170" y="26" width="60" height="10" rx="5" fill="#14181F"/>
+        </g>
+
+        <g id="piece-glare" class="ps-piece" opacity="0" style="mix-blend-mode:multiply;">
+          <rect x="-40" y="0" width="120" height="800" fill="url(#glareGrad)" transform="skewX(-18)"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>

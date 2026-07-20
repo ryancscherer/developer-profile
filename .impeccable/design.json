@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-17T00:00:00Z",
+  "title": "Design System: Scherer Developer",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Pitch Green", "canonical": "#2C864D", "tonalRamp": ["#133A21", "#21653A", "#309153", "#3EBD6C", "#68CD8D", "#94DCAE", "#C0EACF", "#ECF9F1"] },
+      "secondary": { "role": "secondary", "displayName": "Arcade Cyan", "canonical": "#16B4D6", "tonalRamp": ["#073A45", "#0D677A", "#1293AF", "#17C0E4", "#49CFEC", "#7EDDF2", "#B3EBF7", "#E8F9FD"] },
+      "tertiary": { "role": "tertiary", "displayName": "Signal Coral", "canonical": "#E8465F", "tonalRamp": ["#440812", "#780F1F", "#AC152D", "#E01C3A", "#E94D65", "#EF8192", "#F6B4BF", "#FCE8EB"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#14181F", "tonalRamp": ["#1E242E", "#353F52", "#4C5B75", "#637699", "#8595B0", "#A9B4C7", "#CCD3DE", "#F0F2F5"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#F6F7FA", "tonalRamp": ["#1B2131", "#303A57", "#45537C", "#5A6CA2", "#7E8DB7", "#A4AECC", "#C9CFE1", "#EFF0F6"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only." },
+      "headline": { "displayName": "Headline", "purpose": "Section-level headlines." },
+      "title": { "displayName": "Title", "purpose": "Feature-row and assembly-caption headlines." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy, capped near 46-52ch." },
+      "label": { "displayName": "Label", "purpose": "Eyebrows, chip/tag text, nav wordmark." }
+    },
+    "shadows": [
+      { "name": "ambient-card", "value": "0 14px 32px -18px rgba(20,24,31,0.18)", "purpose": "Feature-row visual cards." },
+      { "name": "ambient-piece", "value": "0 6px 16px -8px rgba(20,24,31,0.28)", "purpose": "Screenshot fragments inside a phone-stage mockup." },
+      { "name": "ambient-device", "value": "drop-shadow(0 24px 46px rgba(20,24,31,0.18))", "purpose": "The phone-bezel stage frames." },
+      { "name": "ambient-cta", "value": "0 10px 24px -10px rgba(47,143,82,0.55)", "purpose": "Primary button, tinted with the primary color's own hue." }
+    ],
+    "motion": [
+      { "name": "ease-settle", "value": "cubic-bezier(0.2, 0.7, 0.2, 1)", "purpose": "Feature-row and phone-stage-piece entrances." },
+      { "name": "ease-standard", "value": "ease", "purpose": "Hover/focus micro-interactions on buttons and chips." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "480px" },
+      { "name": "tablet", "value": "1024px" },
+      { "name": "desktop", "value": "1025px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The page's single CTA — Pitch Green fill, white text, ambient CTA glow.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#contact\">Get in touch</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; font-family: 'Segoe UI', -apple-system, sans-serif; font-weight: 600; font-size: 0.98rem; padding: 14px 26px; border-radius: 10px; text-decoration: none; background: #2C864D; color: #FFFFFF; box-shadow: 0 10px 24px -10px rgba(47,143,82,0.55); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; } .ds-btn-primary:hover { transform: translateY(-2px); background: #216C3C; box-shadow: 0 14px 28px -10px rgba(47,143,82,0.65); } .ds-btn-primary:focus-visible { outline: 2px solid #2C864D; outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action — white fill, hairline border, no competing weight with the primary button.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#work\">See the work</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; font-family: 'Segoe UI', -apple-system, sans-serif; font-weight: 600; font-size: 0.98rem; padding: 14px 26px; border-radius: 10px; text-decoration: none; background: #FFFFFF; color: #4C5468; border: 1px solid #E1E5EE; transition: color 0.2s ease, border-color 0.2s ease; } .ds-btn-ghost:hover { color: #14181F; border-color: #626C83; } .ds-btn-ghost:focus-visible { outline: 2px solid #2C864D; outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Tech Chip",
+      "kind": "chip",
+      "refersTo": "chip-tag",
+      "description": "Pill-shaped tag used for hero tags and the tech-stack row.",
+      "html": "<span class=\"ds-chip\">Kotlin</span>",
+      "css": ".ds-chip { font-family: 'Cascadia Mono', Consolas, monospace; font-size: 0.8rem; padding: 10px 16px; border-radius: 999px; border: 1px solid #E1E5EE; background: #FFFFFF; color: #4C5468; transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease; } .ds-chip:hover { border-color: #2C864D; color: #14181F; transform: translateY(-2px); }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "card-feature",
+      "description": "Framed container for a small illustrative visual next to a feature row's copy.",
+      "html": "<div class=\"ds-card\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\"><circle cx=\"24\" cy=\"24\" r=\"18\" fill=\"none\" stroke=\"#16B4D6\" stroke-width=\"3\"/></svg></div>",
+      "css": ".ds-card { border-radius: 16px; border: 1px solid #E1E5EE; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 14px; box-shadow: 0 14px 32px -18px rgba(20,24,31,0.18); }"
+    },
+    {
+      "name": "Nav Bar",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Fixed top bar — transparent over the hero, blurred Paper once scrolled.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-mark\"><span class=\"ds-nav-dot\"></span>SCHERER DEVELOPER</span><a class=\"ds-nav-cta\" href=\"#contact\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; background: rgba(246,247,250,0.86); backdrop-filter: blur(14px) saturate(140%); border-bottom: 1px solid #E1E5EE; } .ds-nav-mark { display: flex; align-items: center; gap: 9px; font-family: 'Cascadia Mono', Consolas, monospace; font-weight: 700; font-size: 0.9rem; color: #14181F; } .ds-nav-dot { width: 9px; height: 9px; border-radius: 50%; background: #2C864D; } .ds-nav-cta { font-family: 'Cascadia Mono', Consolas, monospace; font-size: 0.8rem; padding: 8px 16px; border: 1px solid #E1E5EE; border-radius: 999px; text-decoration: none; color: #4C5468; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; } .ds-nav-cta:hover { border-color: #2C864D; color: #216C3C; background: #E7F3EC; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Shipped Build",
+    "overview": "This system is not a mockup pretending to be a product — it's a landing page built from pieces of two products that actually run. Every color on the page is a color that already exists somewhere in Vicki the Manager or Pop Shot; every headline is set in the same typographic register as the code that built them. The page's job is to feel like scrolling through working software, not a sales brochure about working software. It explicitly rejects the small-studio agency default: client-logo strips, stats/metrics bars, numbered 'our process' sections, and 'book a call now' urgency. A solo developer with no client roster has no honest way to back those signals up, so this system replaces manufactured trust with inspectable proof — real screenshots, real feature detail, and a light, paper-white ground that never has to hide behind mood lighting.",
+    "keyCharacteristics": [
+      "Light, paper-and-ink ground — never dark, never a gradient hero",
+      "Monospace display type for every headline — the subject's own material",
+      "Three accents, each traceable to a literal pixel in a real shipped app",
+      "Soft, ambient-only shadows; no hard drop shadows, no glassmorphism",
+      "Calm, singular CTA — no urgency language, no repeated mid-scroll asks"
+    ],
+    "rules": [
+      { "name": "The Real Color Rule", "body": "Every accent traces to a pixel that actually exists in one of the two real apps. Pitch Green is Vicki the Manager's literal primary; Arcade Cyan and Signal Coral are Pop Shot's literal jet and bubble colors. No color is chosen for generic connotation.", "section": "colors" },
+      { "name": "The One-CTA Rule", "body": "Primary Green appears on exactly one interactive element per viewport at a time. It is never used as a background fill or a large surface color.", "section": "colors" },
+      { "name": "The Code-Face Rule", "body": "Anything the visitor is meant to remember (headlines, captions, tags) is set in the monospace display family. Anything meant to be read at length (paragraphs) is set in the body sans. Never mix the two roles.", "section": "typography" },
+      { "name": "The Ambient-Only Rule", "body": "Shadows are always soft, low-opacity, and colored toward what they're shadowing. They exist to lift an element off the page, never to fake depth on a flat section.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do trace every accent color to a real pixel from one of the two real apps.",
+      "Do keep Primary Green rare: one CTA, small marks, never a large fill or background.",
+      "Do set every headline and label in the monospace display family.",
+      "Do keep phone-stage pieces visible at rest (opacity 1) at all times.",
+      "Do respect prefers-reduced-motion by showing the fully-assembled, static layout immediately."
+    ],
+    "donts": [
+      "Don't add client-logo strips, stats/metrics bars, numbered 'our process' sections, or 'book a call now' urgency CTAs.",
+      "Don't use a dark theme or a gradient-blob hero.",
+      "Don't add decorative numbered markers (01/02/03).",
+      "Don't use stock 'team high-fiving' or generic handshake/laptop photography.",
+      "Don't use Inter, Poppins, or Montserrat as the display face.",
+      "Don't stack a border and a heavy shadow on the same element without reason."
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Android developer Brisbane, app developer Brisbane, software developer Brisbane Australia, Kotlin developer, Jetpack Compose developer, freelance app developer Australia" />
+    <meta name="author" content="Ryan, Scherer Developer" />
+    <meta name="robots" content="index, follow" />
+    <meta name="geo.region" content="AU-QLD" />
+    <meta name="geo.placename" content="Brisbane" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="en_AU" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Scherer Developer",
+      "founder": { "@type": "Person", "name": "Ryan" },
+      "description": "Independent Android and web developer based in Brisbane, Australia, building native apps and modern websites.",
+      "areaServed": "Australia",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Brisbane",
+        "addressRegion": "QLD",
+        "addressCountry": "AU"
+      },
+      "email": "mailto:schererdeveloper@gmail.com",
+      "knowsAbout": ["Android development", "Kotlin", "Jetpack Compose", "Web development"]
+    })} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

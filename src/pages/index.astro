@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import IdeaSection from '../components/IdeaSection.astro';
+import FeaturesConverge from '../components/FeaturesConverge.astro';
+import VickiAssembly from '../components/VickiAssembly.astro';
+import PopShotAssembly from '../components/PopShotAssembly.astro';
+import TrustSection from '../components/TrustSection.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Layout
+  title="Scherer Developer, Android and Web Developer in Brisbane, Australia"
+  description="Ryan is a Brisbane, Australia based Android and web developer taking the complexity out of building apps and websites. Real shipped work: Vicki the Manager and Pop Shot."
+>
+  <Nav />
+  <Hero />
+  <IdeaSection />
+  <FeaturesConverge />
+  <VickiAssembly />
+  <PopShotAssembly />
+  <TrustSection />
+  <Contact />
+
+  <script>
+    (function () {
+      const nav = document.getElementById('nav');
+      const hero = document.querySelector('.hero');
+      if (!nav || !hero) return;
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function ease(t: number) { return 1 - Math.pow(1 - t, 3); }
+      function clamp(v: number, a: number, b: number) { return Math.max(a, Math.min(b, v)); }
+      function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
+      function bandT(progress: number, range: [number, number]) {
+        return ease(clamp((progress - range[0]) / (range[1] - range[0]), 0, 1));
+      }
+
+      type VmPiece = { id: string; range: [number, number]; from: { dx: number; dy: number; rot: number; op: number }; to: { dx: number; dy: number; rot: number; op: number } };
+      type PsPiece = { id: string; range: [number, number]; from: { x: number; y: number; rot: number; s: number; op: number }; to: { x: number; y: number; rot: number; s: number; op: number } };
+
+      // Opacity is always 1, the phone must never show an empty/blank state, even mid-scroll
+      // or before any JS/scroll has happened. Only position/rotation animate; pieces settle
+      // into place as you scroll rather than flying in from nothing.
+      const vmPieces: VmPiece[] = [
+        { id: 'vm-getting-started', range: [0.00, 0.20], from: { dx: -46, dy: -6, rot: -2, op: 1 }, to: { dx: 0, dy: 0, rot: 0, op: 1 } },
+        { id: 'vm-match-config', range: [0.05, 0.25], from: { dx: 52, dy: -4, rot: 2, op: 1 }, to: { dx: 0, dy: 0, rot: 0, op: 1 } },
+        { id: 'vm-roster', range: [0.22, 0.44], from: { dx: -56, dy: 6, rot: -1.5, op: 1 }, to: { dx: 0, dy: 0, rot: 0, op: 1 } },
+        { id: 'vm-goalkeepers', range: [0.30, 0.50], from: { dx: 56, dy: 6, rot: 1.5, op: 1 }, to: { dx: 0, dy: 0, rot: 0, op: 1 } },
+        { id: 'vm-nav', range: [0.48, 0.72], from: { dx: 0, dy: 34, rot: 0, op: 1 }, to: { dx: 0, dy: 0, rot: 0, op: 1 } },
+      ];
+
+      const psPieces: PsPiece[] = [
+        { id: 'piece-grid', range: [0, 0.10], from: { x: 0, y: 0, rot: 0, s: 1, op: 1 }, to: { x: 0, y: 0, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-player', range: [0.00, 0.24], from: { x: 0, y: 50, rot: 6, s: 0.9, op: 1 }, to: { x: 0, y: 0, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-enemy1', range: [0.04, 0.28], from: { x: -50, y: -14, rot: -18, s: 0.85, op: 1 }, to: { x: 0, y: 0, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-enemy2', range: [0.10, 0.34], from: { x: 50, y: -14, rot: 18, s: 0.85, op: 1 }, to: { x: 0, y: 0, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-enemy3', range: [0.16, 0.38], from: { x: 0, y: -46, rot: 0, s: 0.8, op: 1 }, to: { x: 0, y: 0, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-trail', range: [0.34, 0.48], from: { x: 0, y: 0, rot: 0, s: 1, op: 0 }, to: { x: 0, y: 0, rot: 0, s: 1, op: 0.9 } },
+        { id: 'piece-bubble1', range: [0.32, 0.46], from: { x: 70, y: 56, rot: 0, s: 0.6, op: 1 }, to: { x: 100, y: 96, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-bubble2', range: [0.36, 0.50], from: { x: 112, y: 82, rot: 0, s: 0.6, op: 1 }, to: { x: 142, y: 122, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-bubble3', range: [0.40, 0.54], from: { x: 268, y: 64, rot: 0, s: 0.6, op: 1 }, to: { x: 298, y: 104, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-bubble4', range: [0.44, 0.58], from: { x: 228, y: 106, rot: 0, s: 0.6, op: 1 }, to: { x: 258, y: 146, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-bubble5', range: [0.48, 0.62], from: { x: 200, y: 64, rot: 0, s: 0.6, op: 1 }, to: { x: 200, y: 104, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-hud', range: [0.56, 0.72], from: { x: 0, y: -40, rot: 0, s: 1, op: 1 }, to: { x: 0, y: 0, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-bezel', range: [0.70, 0.90], from: { x: 0, y: 0, rot: 0, s: 1.05, op: 1 }, to: { x: 0, y: 0, rot: 0, s: 1, op: 1 } },
+        { id: 'piece-glare', range: [0.86, 1.0], from: { x: -60, y: 0, rot: 0, s: 1, op: 0 }, to: { x: 460, y: 0, rot: 0, s: 1, op: 1 } },
+      ];
+
+      function makeStageController(sectionEl: Element, pieces: (VmPiece | PsPiece)[], mode: 'vm' | 'ps') {
+        const els: Record<string, HTMLElement | SVGElement | null> = {};
+        pieces.forEach((p) => { els[p.id] = document.getElementById(p.id); });
+        const captions = sectionEl.querySelectorAll('.assembly-caption');
+        const dots = sectionEl.querySelectorAll('.assembly-progress i');
+        const glareIn: [number, number] = [0.88, 0.94];
+        const glareOut: [number, number] = [0.94, 1.0];
+
+        return function render() {
+          const rect = sectionEl.getBoundingClientRect();
+          const total = rect.height - window.innerHeight;
+          const progress = clamp(-rect.top / Math.max(total, 1), 0, 1);
+
+          pieces.forEach((p) => {
+            const el = els[p.id];
+            if (!el) return;
+            const t = bandT(progress, p.range);
+            let op = lerp(p.from.op, p.to.op, t);
+
+            if (mode === 'vm') {
+              const vp = p as VmPiece;
+              const dx = lerp(vp.from.dx, vp.to.dx, t);
+              const dy = lerp(vp.from.dy, vp.to.dy, t);
+              const rot = lerp(vp.from.rot, vp.to.rot, t);
+              (el as HTMLElement).style.transform = `translate(${dx}px,${dy}px) rotate(${rot}deg)`;
+              (el as HTMLElement).style.opacity = String(op);
+            } else {
+              const sp = p as PsPiece;
+              let x = lerp(sp.from.x, sp.to.x, t);
+              const y = lerp(sp.from.y, sp.to.y, t);
+              const rot2 = lerp(sp.from.rot, sp.to.rot, t);
+              const s = lerp(sp.from.s, sp.to.s, t);
+              if (p.id === 'piece-glare') {
+                const tin = bandT(progress, glareIn);
+                const tout = bandT(progress, glareOut);
+                op = tin * (1 - tout);
+                x = lerp(sp.from.x, sp.to.x, tin + tout);
+              }
+              (el as SVGElement).setAttribute('transform', `translate(${x},${y}) rotate(${rot2}) scale(${s})`);
+              (el as HTMLElement).style.opacity = String(op);
+            }
+          });
+
+          const band = progress < 0.34 ? 0 : progress < 0.68 ? 1 : 2;
+          captions.forEach((c) => c.classList.toggle('active', Number((c as HTMLElement).dataset.cap) === band));
+          dots.forEach((d) => d.classList.toggle('active', Number((d as HTMLElement).dataset.dot) === band));
+        };
+      }
+
+      let renderVm = () => {};
+      let renderPs = () => {};
+      if (!reduced) {
+        const vmSection = document.getElementById('work');
+        const psSection = document.getElementById('popshot');
+        if (vmSection) renderVm = makeStageController(vmSection, vmPieces, 'vm');
+        if (psSection) renderPs = makeStageController(psSection, psPieces, 'ps');
+      }
+
+      // Belt-and-suspenders update loop. A plain 'scroll' listener can silently never fire in
+      // some embedding contexts, and a pure requestAnimationFrame loop can go idle if the host
+      // ever marks the document non-visible. Three independent triggers all call the same
+      // idempotent update(): an immediate call on load, a scroll/resize listener, and a
+      // low-overhead interval poll that keeps working even if the others don't fire.
+      function update() {
+        if (!reduced) { renderVm(); renderPs(); }
+        nav!.classList.toggle('scrolled', hero!.getBoundingClientRect().bottom < 80);
+      }
+
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      window.requestAnimationFrame(function raf() { update(); window.requestAnimationFrame(raf); });
+      window.setInterval(update, 120);
+
+      // Lightweight reveal for the idea quote cards and the horizontal features band: a
+      // one-time IntersectionObserver trigger rather than a continuous scroll-scrub, which
+      // keeps these compact sections snappy instead of eating another full pinned scroll track.
+      // Reduced-motion never gets the ".pre" scattered start state, so with no JS or with
+      // motion reduced, everything is simply visible in its resting position from the start.
+      if (!reduced) {
+        document.querySelectorAll('.converge-row').forEach((row) => row.classList.add('pre'));
+      }
+
+      const revealTargets = document.querySelectorAll('.feature-row, .fade-up, .converge-row');
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in-view'); }),
+        { threshold: 0.2 }
+      );
+      revealTargets.forEach((r) => io.observe(r));
+    })();
+  </script>
+</Layout>
